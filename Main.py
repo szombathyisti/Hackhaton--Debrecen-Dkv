@@ -172,13 +172,13 @@ q33 = df["total_flow"].quantile(0.33)
 q66 = df["total_flow"].quantile(0.66)
  
 def forgalmi_kat(f):
-    if f <= q33:   return "🟢 Alacsony forgalom"
-    elif f <= q66: return "🟡 Közepes forgalom"
-    else:          return "🔴 Magas forgalom"
+    if f <= q33:   return " Alacsony forgalom"
+    elif f <= q66: return " Közepes forgalom"
+    else:          return " Magas forgalom"
  
 df["forgalmi_kat"] = df["total_flow"].apply(forgalmi_kat)
- 
-for kat in ["🔴 Magas forgalom", "🟡 Közepes forgalom", "🟢 Alacsony forgalom"]:
+
+for kat in [" Magas forgalom", " Közepes forgalom", " Alacsony forgalom"]:
     sub = df[df["forgalmi_kat"] == kat].sort_values("priority_score", ascending=False)
     print(f"\n  {kat}  (forgalom küszöb: {q33:.0f} / {q66:.0f} utas)")
     print(f"  {'Megálló':<35} {'Várakozás':>10} {'Forgalom':>10} {'Pont':>8}")
@@ -232,17 +232,17 @@ def javaslat(row):
     flow   = row["total_flow"]
     occ    = row["avg_occupancy"]
     if delay > 300:
-        return "🚨 Azonnali beavatkozás – terminál/végállomás-kezelés felülvizsgálata"
+        return " Azonnali beavatkozás – terminál/végállomás-kezelés felülvizsgálata"
     elif occ > 30 and delay > 120:
-        return "🚌 Kapacitásbővítés + menetrendgyorsítás (zsúfolt + lassú)"
+        return " Kapacitásbővítés + menetrendgyorsítás (zsúfolt + lassú)"
     elif flow > med_flow * 2 and delay > med_delay:
-        return "⚡ Forgalomtechnikai beavatkozás – jelzőlámpa-prioritás javasolt"
+        return " Forgalomtechnikai beavatkozás – jelzőlámpa-prioritás javasolt"
     elif flow > med_flow * 2:
-        return "📊 Menetrend-optimalizálás – csúcsidős sűrítés"
+        return " Menetrend-optimalizálás – csúcsidős sűrítés"
     elif delay > 120:
-        return "⏱️  Megállókezelés gyorsítása – utas-áramlat design"
+        return "  Megállókezelés gyorsítása – utas-áramlat design"
     else:
-        return "✅git Elfogadható – megfigyelés elegendő"
+        return "git Elfogadható – megfigyelés elegendő"
  
 df["javaslat"] = df.apply(javaslat, axis=1)
  
