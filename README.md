@@ -12,5 +12,6 @@ STEP-BY-STEP:
 4.Kell megfigyelni az összes környezeti adatot, ez már rendelkezésre áll a debreceni rendszereknek köszönhetően
 5.Külső események, például, hogy van-e városi esemény (majális, debreceni fesztiválok)
 6.Külső forgalom-> ha lehet trackelni
-7.Útminőség megfigyelése-> megdigyelni, van e korreláció az űtminőség és késés között
-8.Busz jelenlegi állapota, mikor volt szervízbe, milyen lehet a motor állapota, kerekek kopása 9.
+7.Útminőség megfigyelése-> megfigyelni, van e korreláció az űtminőség és késés között
+8.Busz jelenlegi állapota, mikor volt szervízbe, milyen lehet a motor állapota, kerekek kopása
+9.A megfigyelések időpontját is fel kell jegyzeni, hogy tudjuk, időre korrelál-e egy-egy késés. Ha például csak 8órakkor késik egy busz, de mindig csak akkor, az a reggeli forgalomnak köszönhető
