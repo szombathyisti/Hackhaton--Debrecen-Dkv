@@ -242,7 +242,7 @@ def javaslat(row):
     elif delay > 120:
         return "⏱️  Megállókezelés gyorsítása – utas-áramlat design"
     else:
-        return "✅ Elfogadható – megfigyelés elegendő"
+        return "✅git Elfogadható – megfigyelés elegendő"
  
 df["javaslat"] = df.apply(javaslat, axis=1)
  
